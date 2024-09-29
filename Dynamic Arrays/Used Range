@@ -1,0 +1,9 @@
+'Purpose : Create Dynaamic Array from used range on sheet
+'Assumption_1 : Cell Begin Range : $A$6
+'Assumption_2 : Sheet name with data : Retrieve!
+'Author : Winston Snyder
+'Date : Septer 28, 2024
+'---------------------------------------------------------
+
+
+=INDEX(Retrieve!6:1048576, SEQUENCE(ROW(OFFSET(Retrieve!$A$6, COUNTA(Retrieve!$A$6:$A$1048576)-1, 0)) - ROW(Retrieve!$A$6) + 1), SEQUENCE(1, LOOKUP(2, 1/(Retrieve!6:6<>""), COLUMN(Retrieve!6:6)) - COLUMN(Retrieve!$A$6) + 1))
